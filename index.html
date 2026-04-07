@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AkademiaBG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-slate-950 text-slate-200 selection:bg-blue-500/30">
+
+<div class="max-w-6xl mx-auto px-6">
+
+    <header class="flex justify-between items-center py-6">
+        <a href="index.html" class="flex items-center px-4 py-2 border border-slate-800 rounded-xl shadow-lg hover:border-blue-500/50 transition bg-slate-900/50 backdrop-blur-sm">
+            <img src="favico.png" alt="AkademiaBG" class="h-12 w-12 md:h-16 md:w-16 mr-2">
+            <span class="font-bold text-xl md:text-2xl text-white">AkademiaBG</span>
+        </a>
+
+        <div class="flex items-center gap-3 md:gap-6">
+            <a href="become-teacher.html" class="hidden md:block text-slate-400 hover:text-white font-bold text-sm uppercase tracking-widest transition">
+                Стани учител
+            </a>
+            
+            <div id="auth-container">
+                <div class="h-10 w-20 bg-slate-800 animate-pulse rounded-md"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="text-center py-20">
+        <h1 class="text-4xl md:text-6xl font-black mb-2 text-white tracking-tight">
+            Уроци по Български Език и Литература
+        </h1>
+        <p class="text-blue-400 font-bold text-xl mb-8 tracking-wide">
+            + Български като чужд
+        </p>
+        
+        <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Подготовка за изпити, НВО и подобряване на успеха за ученици от 5. до 12. клас.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="catalog.html" class="w-full sm:w-auto bg-blue-600 text-white px-10 py-4 rounded-2xl font-black text-lg shadow-xl shadow-blue-900/40 hover:bg-blue-500 hover:-translate-y-1 transition-all">
+                Намери учител
+            </a>
+            <a href="become-teacher.html" class="w-full sm:w-auto bg-slate-900 text-white border border-slate-800 px-10 py-4 rounded-2xl font-black text-lg hover:bg-slate-800 hover:border-slate-700 transition-all">
+                Стани учител
+            </a>
+        </div>
+    </section>
+
+    </div>
+
+<script src="js/index.js"></script>
+</body>
+</html>
