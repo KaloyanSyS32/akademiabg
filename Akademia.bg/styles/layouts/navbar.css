@@ -1,113 +1,57 @@
 .navbar-layout {
-    position: relative;
-    width: 100%;
-    height: 64px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 16px;
+    justify-content: space-between;
+    padding: 0 24px;
     z-index: 1000;
     box-sizing: border-box;
-}
-
-@media (min-width: 768px) {
-    .navbar-layout {
-        height: 72px;
-        padding: 0 24px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .navbar-layout {
-        padding: 0 48px;
-    }
 }
 
 .brand-wrapper-layout {
     display: flex;
     align-items: center;
-    text-decoration: none;
+    gap: 12px;
 }
 
 .logo-box-layout {
-    padding: 6px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
-    margin-right: 8px;
-}
-
-@media (min-width: 768px) {
-    .logo-box-layout {
-        padding: 8px;
-        border-radius: 12px;
-        margin-right: 12px;
-    }
 }
 
 .logo-img {
-    height: 24px;
     width: 24px;
-    display: block;
-}
-
-@media (min-width: 768px) {
-    .logo-img {
-        height: 32px;
-        width: 32px;
-    }
+    height: 24px;
+    object-fit: contain;
 }
 
 .brand-text {
-    font-weight: 900;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
-    font-style: italic;
-}
-
-@media (min-width: 768px) {
-    .brand-text {
-        font-size: 20px;
-        letter-spacing: -0.05em;
-    }
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
 }
 
 .nav-actions-layout {
     display: flex;
     align-items: center;
-    gap: 16px;
-}
-
-@media (min-width: 768px) {
-    .nav-actions-layout {
-        gap: 24px;
-    }
+    gap: 24px;
 }
 
 .nav-link-secondary {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-@media (min-width: 768px) {
-    .nav-link-secondary {
-        font-size: 10px;
-        letter-spacing: 0.1em;
-    }
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .auth-loading-layout {
-    width: 64px;
-    height: 28px;
+    width: 110px;
+    height: 38px;
     border-radius: 8px;
-}
-
-@media (min-width: 768px) {
-    .auth-loading-layout {
-        width: 80px;
-        height: 32px;
-        border-radius: 12px;
-    }
 }
