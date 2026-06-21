@@ -7,45 +7,6 @@
     <link rel="stylesheet" href="./styles/main.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    <style>
-        .catalog-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 24px;
-            box-sizing: border-box;
-        }
-
-        .filter-ribbon {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            padding: 24px;
-            margin-bottom: 32px;
-            border-radius: 12px;
-        }
-
-        @media (min-width: 768px) {
-            .filter-ribbon {
-                flex-direction: row;
-                align-items: center;
-            }
-            .filter-ribbon .input-group-flow {
-                flex: 1;
-            }
-            .filter-ribbon .select-field-layout {
-                max-width: 240px;
-            }
-        }
-
-        /* Responsive structural grid matching industrial layout variables */
-        .catalog-grid-canvas {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
 
@@ -64,14 +25,14 @@
         </div>
     </header>
 
-    <main class="catalog-container">
-        <section class="card-layout theme-glass-card filter-ribbon">
-            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%; flex: 1;">
-                <label for="search-teacher" class="badge-text theme-brand-title" style="font-size: 11px;">Търсене по име</label>
+    <main class="catalog-container-layout">
+        <section class="card-layout theme-glass-card filter-ribbon-layout">
+            <div class="control-box-layout">
+                <label for="search-teacher" class="badge-text theme-brand-title">Търсене по име</label>
                 <input type="text" id="search-teacher" class="input-field-layout theme-input" placeholder="Въведете име на преподавател...">
             </div>
-            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 240px;">
-                <label for="filter-target" class="badge-text theme-brand-title" style="font-size: 11px;">Филтър по клас</label>
+            <div class="filter-box-layout">
+                <label for="filter-target" class="badge-text theme-brand-title">Филтър по клас</label>
                 <select id="filter-target" class="select-field-layout theme-input">
                     <option value="all">Всички нива</option>
                     <option value="5">5. клас</option>
@@ -84,8 +45,8 @@
             </div>
         </section>
 
-        <section id="catalog-grid" class="catalog-grid-canvas"></section>
-        <p id="catalog-status" class="theme-text-muted-paragraph" style="text-align: center; display: none; margin-top: 40px; font-weight: 700; color: #ef4444;"></p>
+        <section id="catalog-grid" class="catalog-grid-canvas-layout"></section>
+        <p id="catalog-status" class="status-alert-layout theme-status-error"></p>
     </main>
 
     <script type="module" src="./src/app.js"></script>
