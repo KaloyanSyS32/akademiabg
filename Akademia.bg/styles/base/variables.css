@@ -1,31 +1,40 @@
 :root {
-    --radius-md: 12px;
-    --radius-lg: 24px;
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --theme-bg: #f5f6fa;
-    --theme-text-main: #111827;
-    --theme-text-muted: #6b7280;
+    /* Color Palette Archetypes */
+    --clr-primary: #2563eb;
+    --clr-primary-hover: #3b82f6;
+    --clr-accent: #3b82f6;
+    --clr-success: #10b981;
+    --clr-error: #ef4444;
     
-    --surface-bg: rgba(0, 0, 0, 0.03);
-    --surface-border: rgba(0, 0, 0, 0.08);
-    --surface-blur: blur(16px);
-    --surface-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06);
-    --heading-gradient: linear-gradient(135deg, #111827 0%, #6b7280 100%);
-    --footer-border-tint: rgba(0, 0, 0, 0.05);
+    /* Layout Dimensions */
+    --nav-height: 72px;
+    --container-max: 1200px;
+    
+    /* Structural Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* System Light-Theme Tokens */
+    --theme-bg: #f8fafc;
+    --theme-text-main: #0f172a;
+    --theme-text-muted: #475569;
+    --surface-bg: rgba(255, 255, 255, 0.7);
+    --surface-border: rgba(15, 23, 42, 0.08);
+    --surface-blur: blur(12px);
+    --surface-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    --heading-gradient: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    --footer-border-tint: rgba(15, 23, 42, 0.06);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
+        /* System Dark-Theme Tokens */
         --theme-bg: #020617;
-        --theme-text-main: #e2e8f0;
+        --theme-text-main: #f8fafc;
         --theme-text-muted: #94a3b8;
-        
-        --surface-bg: rgba(15, 23, 42, 0.6);
-        --surface-border: rgba(255, 255, 255, 0.05);
-        --surface-blur: blur(12px);
-        --surface-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        --heading-gradient: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-        --footer-border-tint: rgba(255, 255, 255, 0.05);
+        --surface-bg: rgba(15, 23, 42, 0.4);
+        --surface-border: rgba(255, 255, 255, 0.08);
+        --surface-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        --heading-gradient: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+        --footer-border-tint: rgba(255, 255, 255, 0.06);
     }
 }
