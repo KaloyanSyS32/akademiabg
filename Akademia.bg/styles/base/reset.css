@@ -3,7 +3,7 @@ html {
     box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*, *:before, *:after {
     box-sizing: inherit;
 }
 
@@ -17,13 +17,38 @@ html, body {
 body {
     background-color: var(--theme-bg);
     color: var(--theme-text-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 img {
     max-width: 100%;
-    height: auto;
+    display: block;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
 }
