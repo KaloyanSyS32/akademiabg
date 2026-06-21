@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AkademiaBG | Онлайн уроци по БЕЛ</title>
+    <meta name="description" content="Индивидуални онлайн уроци по БЕЛ за 5-12 клас. Подготовка за НВО, матури и кандидат-студентски изпити.">
+    <link rel="icon" type="image/png" href="favico.png">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <header class="navbar-layout theme-glass-nav">
+        <a href="index.html" class="brand-wrapper-layout">
+            <div class="logo-box-layout theme-logo-box">
+                <img src="favico.png" alt="Лого" class="logo-img">
+            </div>
+            <span class="brand-text theme-brand-title">
+                Akademia<span class="brand-accent">BG</span>
+            </span>
+        </a>
+        
+        <div class="nav-actions-layout">
+            <a href="become-teacher.html" class="nav-link-secondary theme-text-accent-link">
+                Стани учител
+            </a>
+            <div id="auth-container" class="auth-loading-layout theme-skeleton-loader"></div>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        <section class="hero-section-layout">
+            <div class="badge-layout theme-glass-badge">
+                <span class="pulse-indicator-layout">
+                    <span class="pulse-ring"></span>
+                    <span class="pulse-dot"></span>
+                </span>
+                <span class="badge-text">Индивидуално обучение</span>
+            </div>
+            
+            <h1 class="hero-title-layout theme-heading-text">
+                Уроци по <span>Български</span> <br> Език и Литература
+            </h1>
+            
+            <p class="hero-subtitle-layout theme-text-muted-paragraph">
+                Премиум подготовка за ученици от 5. до 12. клас. Успехът на изпитите започва с правилния ментор.
+            </p>
+            
+            <div class="hero-cta-layout">
+                <a href="catalog.html" class="btn-primary-layout theme-btn-primary">
+                    Намери учител
+                </a>
+                <a href="how-it-works.html" class="btn-secondary-layout theme-glass-card">
+                    Как работи?
+                </a>
+            </div>
+        </section>
+
+        <section class="catalog-grid-layout">
+            <div class="card-layout theme-glass-card">
+                <div class="card-body-layout">
+                    <div class="icon-box-layout theme-icon-container">
+                        <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="card-title-layout theme-heading-text">НВО след 7. клас</h3>
+                    <p class="card-text-layout theme-text-muted-paragraph">Систематизирана подготовка за високи резултати на националното външно оценяване.</p>
+                </div>
+                <div class="card-footer-tag theme-tag-footer">Изпитна подготовка</div>
+            </div>
+
+            <div class="card-layout theme-glass-card">
+                <div class="card-body-layout">
+                    <div class="icon-box-layout theme-icon-container">
+                        <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="card-title-layout theme-heading-text">Матура по БЕЛ</h3>
+                    <p class="card-text-layout theme-text-muted-paragraph">Дълбочинен анализ на произведенията и овладяване на езиковите норми за ДЗИ.</p>
+                </div>
+                <div class="card-footer-tag theme-tag-footer">12. клас</div>
+            </div>
+
+            <div class="card-layout theme-glass-card variant-featured-layout">
+                <div class="card-body-layout">
+                    <div class="icon-box-layout theme-icon-container">
+                        <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 0119-9"></path></svg>
+                    </div>
+                    <h3 class="card-title-layout theme-heading-text">БЕЛ като чужд</h3>
+                    <p class="card-text-layout theme-text-muted-paragraph">Специализирано обучение за чужденци и българи, живеещи в чужбина.</p>
+                </div>
+                <div class="card-footer-tag theme-tag-footer-accent">Глобален достъп</div>
+            </div>
+
+            <div class="card-layout theme-glass-card">
+                <div class="card-body-layout">
+                    <div class="icon-box-layout theme-icon-container">
+                        <svg class="icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="card-title-layout theme-heading-text">Кандидат-студенти</h3>
+                    <p class="card-text-layout theme-text-muted-paragraph">Специализирани курсове за прием в елитни университети и специалности.</p>
+                </div>
+                <div class="card-footer-tag theme-tag-footer">Университет</div>
+            </div>
+        </section>
+
+        <h2 class="hero-title-layout theme-heading-text" style="font-size: 24px; text-align: center; margin-top: 64px; margin-bottom: 12px;">Нашите преподаватели</h2>
+        <section class="catalog-grid-layout" id="featured-catalog-grid"></section>
+    </main>
+
+    <footer class="footer-layout theme-footer">
+        <div class="footer-grid-layout">
+            <div class="footer-brand-column">
+                <span class="brand-text theme-brand-title">Akademia<span class="brand-accent">BG</span></span>
+                <p class="footer-desc theme-text-muted-paragraph">Твоят път към отличната грамотност и успешно бъдеще.</p>
+            </div>
+            <div>
+                <h4 class="footer-heading theme-heading-text">Навигация</h4>
+                <ul class="footer-links-layout">
+                    <li><a href="catalog.html" class="theme-text-muted-link">Всички учители</a></li>
+                    <li><a href="how-it-works.html" class="theme-text-muted-link">Как работи</a></li>
+                    <li><a href="become-teacher.html" class="theme-text-muted-link">Стани учител</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading theme-heading-text">Подкрепа</h4>
+                <ul class="footer-links-layout">
+                    <li><a href="help.html" class="theme-text-muted-link">Помощ</a></li>
+                    <li><a href="terms.html" class="theme-text-muted-link">Условия</a></li>
+                    <li><a href="contact.html" class="theme-text-muted-link">Контакти</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>

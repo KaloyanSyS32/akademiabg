@@ -1,0 +1,29 @@
+html {
+    scroll-behavior: initial;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html, body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--theme-bg);
+    color: var(--theme-text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

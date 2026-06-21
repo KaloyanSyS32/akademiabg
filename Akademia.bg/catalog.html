@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог на преподаватели | AkademiaBG</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <style>
+        .catalog-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+
+        .filter-ribbon {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-radius: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .filter-ribbon {
+                flex-direction: row;
+                align-items: center;
+            }
+            .filter-ribbon .input-group-flow {
+                flex: 1;
+            }
+            .filter-ribbon .select-field-layout {
+                max-width: 240px;
+            }
+        }
+
+        /* Responsive structural grid matching industrial layout variables */
+        .catalog-grid-canvas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-layout theme-glass-nav">
+        <a href="index.html" class="brand-wrapper-layout">
+            <div class="logo-box-layout theme-logo-box">
+                <img src="favico.png" alt="Лого" class="logo-img">
+            </div>
+            <span class="brand-text theme-brand-title">
+                Akademia<span class="brand-accent">BG</span>
+            </span>
+        </a>
+        <div class="nav-actions-layout">
+            <a href="index.html" class="nav-link-secondary theme-text-accent-link">Начало</a>
+            <div id="auth-container" class="auth-loading-layout theme-skeleton-loader"></div>
+        </div>
+    </header>
+
+    <main class="catalog-container">
+        <section class="card-layout theme-glass-card filter-ribbon">
+            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%; flex: 1;">
+                <label for="search-teacher" class="badge-text theme-brand-title" style="font-size: 11px;">Търсене по име</label>
+                <input type="text" id="search-teacher" class="input-field-layout theme-input" placeholder="Въведете име на преподавател...">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 240px;">
+                <label for="filter-target" class="badge-text theme-brand-title" style="font-size: 11px;">Филтър по клас</label>
+                <select id="filter-target" class="select-field-layout theme-input">
+                    <option value="all">Всички нива</option>
+                    <option value="5">5. клас</option>
+                    <option value="6">6. клас</option>
+                    <option value="7">7. клас (НВО)</option>
+                    <option value="11">11. клас</option>
+                    <option value="12">12. клас (ДЗИ)</option>
+                    <option value="0">Университет</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="catalog-grid" class="catalog-grid-canvas"></section>
+        <p id="catalog-status" class="theme-text-muted-paragraph" style="text-align: center; display: none; margin-top: 40px; font-weight: 700; color: #ef4444;"></p>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>

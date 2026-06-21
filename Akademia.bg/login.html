@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход / Регистрация | AkademiaBG</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <style>
+        .split-viewport {
+            display: grid;
+            grid-template-columns: 1fr;
+            min-height: calc(100vh - 64px);
+            width: 100%;
+        }
+        
+        @media (min-width: 992px) {
+            .split-viewport {
+                grid-template-columns: 1fr 1fr;
+                min-height: calc(100vh - 72px);
+            }
+        }
+
+        .form-side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+            box-sizing: border-box;
+        }
+
+        .brand-side {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(2, 6, 23, 0.4) 100%);
+            border-left: 1px solid var(--surface-border);
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 992px) {
+            .brand-side {
+                display: flex;
+            }
+        }
+
+        .auth-container-box {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .auth-form-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            margin-top: 32px;
+        }
+
+        .input-group-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-group-flow[data-state="hidden"] {
+            display: none !important;
+        }
+
+        .input-group-flow[data-state="visible"] {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-layout theme-glass-nav">
+        <a href="index.html" class="brand-wrapper-layout">
+            <div class="logo-box-layout theme-logo-box">
+                <img src="favico.png" alt="Лого" class="logo-img">
+            </div>
+            <span class="brand-text theme-brand-title">
+                Akademia<span class="brand-accent">BG</span>
+            </span>
+        </a>
+        <div class="nav-actions-layout">
+            <a href="index.html" class="nav-link-secondary theme-text-accent-link">Начало</a>
+        </div>
+    </header>
+
+    <main class="split-viewport">
+        <section class="form-side">
+            <div class="auth-container-box" id="auth-view-wrapper">
+                <h1 id="auth-title" class="hero-title-layout theme-heading-text" style="font-size: 32px; text-align: left; margin-bottom: 8px;">Вход</h1>
+                <p id="auth-subtitle" class="theme-text-muted-paragraph" style="font-size: 15px; margin: 0;">Добре дошли отново! Влезте в профила си.</p>
+                
+                <form id="auth-form" class="auth-form-flow">
+                    <div id="name-field-group" class="input-group-flow" data-state="hidden">
+                        <label for="auth-name" class="badge-text theme-brand-title" style="font-size: 11px;">Име и Фамилия</label>
+                        <input type="text" id="auth-name" name="name" autocomplete="name" class="input-field-layout theme-input" placeholder="Иван Иванов">
+                    </div>
+
+                    <div class="input-group-flow">
+                        <label for="auth-email" class="badge-text theme-brand-title" style="font-size: 11px;">Имейл адрес</label>
+                        <input type="email" id="auth-email" name="email" autocomplete="username" class="input-field-layout theme-input" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="input-group-flow" id="password-field-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label for="auth-password" class="badge-text theme-brand-title" style="font-size: 11px;">Парола</label>
+                            <a href="#" id="auth-forgot-link" class="nav-link-secondary" style="color: #3b82f6; text-transform: none; font-weight: 700; letter-spacing: 0;">Забравена парола?</a>
+                        </div>
+                        <input type="password" id="auth-password" name="password" autocomplete="current-password" class="input-field-layout theme-input" placeholder="••••••••" required minlength="6">
+                    </div>
+
+                    <p id="auth-error-msg" style="color: #ef4444; font-size: 13px; font-weight: 700; display: none; margin: 4px 0 0 0;"></p>
+                    <p id="auth-success-msg" style="color: #10b981; font-size: 13px; font-weight: 700; display: none; margin: 4px 0 0 0;"></p>
+
+                    <button type="submit" id="auth-submit-btn" class="btn-primary-layout theme-btn-primary" style="margin-top: 8px; width: 100%;">Влез в профила</button>
+                </form>
+
+                <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--surface-border);">
+                    <p id="auth-toggle-msg" class="theme-text-muted-paragraph" style="font-size: 14px; margin: 0;">
+                        Нямате профил? <a href="#" id="auth-toggle-link" style="color: #3b82f6; font-weight: 700; text-decoration: none;">Регистрирайте се тук</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-side">
+            <div class="badge-layout theme-glass-badge" style="margin-bottom: 24px; width: max-content;">
+                <span class="pulse-indicator-layout">
+                    <span class="pulse-ring"></span>
+                    <span class="pulse-dot"></span>
+                </span>
+                <span class="badge-text">Премиум обучение</span>
+            </div>
+            <h2 class="hero-title-layout theme-heading-text" style="font-size: 40px; text-align: left; margin-bottom: 16px; line-height: 1.2;">
+                Твоят дигитален <br>клас по БЕЛ
+            </h2>
+            <p class="theme-text-muted-paragraph" style="font-size: 16px; line-height: 1.6; max-width: 440px; margin: 0;">
+                Достъп до специализирани уроци, проследяване на графици и директна връзка с топ преподаватели в реално време.
+            </p>
+        </section>
+    </main>
+
+    <script type="module" src="./src/auth-handler.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стани учител | AkademiaBG</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <style>
+        .split-viewport {
+            display: grid;
+            grid-template-columns: 1fr;
+            min-height: calc(100vh - 64px);
+            width: 100%;
+        }
+        
+        @media (min-width: 992px) {
+            .split-viewport {
+                grid-template-columns: 1fr 1fr;
+                min-height: calc(100vh - 72px);
+            }
+        }
+
+        .form-side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+            box-sizing: border-box;
+        }
+
+        .brand-side {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(2, 6, 23, 0.4) 100%);
+            border-left: 1px solid var(--surface-border);
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 992px) {
+            .brand-side {
+                display: flex;
+            }
+        }
+
+        .onboarding-container-box {
+            width: 100%;
+            max-width: 460px;
+        }
+
+        .onboarding-form-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            margin-top: 32px;
+        }
+
+        .input-group-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-layout theme-glass-nav">
+        <a href="index.html" class="brand-wrapper-layout">
+            <div class="logo-box-layout theme-logo-box">
+                <img src="favico.png" alt="Лого" class="logo-img">
+            </div>
+            <span class="brand-text theme-brand-title">
+                Akademia<span class="brand-accent">BG</span>
+            </span>
+        </a>
+        <div class="nav-actions-layout">
+            <a href="index.html" class="nav-link-secondary theme-text-accent-link">Начало</a>
+        </div>
+    </header>
+
+    <main class="split-viewport">
+        <section class="form-side">
+            <div class="onboarding-container-box">
+                <h1 class="hero-title-layout theme-heading-text" style="font-size: 32px; text-align: left; margin-bottom: 8px;">Стани учител</h1>
+                <p class="theme-text-muted-paragraph" style="font-size: 15px; margin: 0;">Присъединете се към екипа от специалисти по БЕЛ.</p>
+                
+                <form id="teacher-onboarding-form" class="onboarding-form-flow">
+                    <div class="input-group-flow">
+                        <label for="teacher-name" class="badge-text theme-brand-title" style="font-size: 11px;">Име и Фамилия</label>
+                        <input type="text" id="teacher-name" class="input-field-layout theme-input" placeholder="Проф. Мария Петрова" required>
+                    </div>
+
+                    <div class="input-group-flow">
+                        <label for="teacher-subject" class="badge-text theme-brand-title" style="font-size: 11px;">Специализация / Предмет</label>
+                        <input type="text" id="teacher-subject" class="input-field-layout theme-input" value="Български език и Литература (БЕЛ)" readonly required>
+                    </div>
+
+                    <div class="input-group-flow">
+                        <label for="teacher-rate" class="badge-text theme-brand-title" style="font-size: 11px;">Стандартно възнаграждение за урок</label>
+                        <input type="text" id="teacher-rate" class="input-field-layout theme-input" value="40 лв. (€20) / учебен час" style="font-weight: 700; color: #3b82f6;" readonly required>
+                    </div>
+
+                    <div class="input-group-flow">
+                        <label class="badge-text theme-brand-title" style="font-size: 11px;">Целеви групи / Класове</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label"><input type="checkbox" name="grades" value="5"> 5. клас</label>
+                            <label class="checkbox-label"><input type="checkbox" name="grades" value="6"> 6. клас</label>
+                            <label class="checkbox-label"><input type="checkbox" name="grades" value="7"> 7. клас (НВО)</label>
+                            <label class="checkbox-label"><input type="checkbox" name="grades" value="11"> 11. клас</label>
+                            <label class="checkbox-label"><input type="checkbox" name="grades" value="12"> 12. клас (ДЗИ)</label>
+                            <label class="checkbox-label"><input type="checkbox" name="grades" value="Uni"> Университет</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group-flow">
+                        <label for="teacher-bio" class="badge-text theme-brand-title" style="font-size: 11px;">Професионално резюме / Биография</label>
+                        <textarea id="teacher-bio" class="input-field-layout theme-input" style="min-height: 100px; resize: vertical; padding: 12px;" placeholder="Разкажете за своя опит, педагогически подход и постигнати резултати..." required minlength="30"></textarea>
+                    </div>
+
+                    <p id="onboarding-error-msg" style="color: #ef4444; font-size: 13px; font-weight: 700; display: none; margin: 4px 0 0 0;"></p>
+                    <p id="onboarding-success-msg" style="color: #10b981; font-size: 13px; font-weight: 700; display: none; margin: 4px 0 0 0;"></p>
+
+                    <button type="submit" id="onboarding-submit-btn" class="btn-primary-layout theme-btn-primary" style="margin-top: 8px; width: 100%;">Изпрати кандидатстване</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="brand-side">
+            <div class="badge-layout theme-glass-badge" style="margin-bottom: 24px; width: max-content;">
+                <span class="pulse-indicator-layout">
+                    <span class="pulse-ring"></span>
+                    <span class="pulse-dot"></span>
+                </span>
+                <span class="badge-text">Преподавателски панел</span>
+            </div>
+            <h2 class="hero-title-layout theme-heading-text" style="font-size: 40px; text-align: left; margin-bottom: 16px; line-height: 1.2;">
+                Фиксирано заплащане, <br>без скрити такси
+            </h2>
+            <p class="theme-text-muted-paragraph" style="font-size: 16px; line-height: 1.6; max-width: 440px; margin: 0;">
+                Всички индивидуални сесии в платформата се таксуват на единна фиксирана ставка от €20. Фокусирайте се изцяло върху преподаването.
+            </p>
+        </section>
+    </main>
+
+    <script type="module" src="./src/teacher-onboarding.js"></script>
+</body>
+</html>

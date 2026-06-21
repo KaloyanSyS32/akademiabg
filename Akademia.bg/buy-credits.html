@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купи кредити | AkademiaBG</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <header class="navbar-layout theme-glass-nav">
+        <a href="index.html" class="brand-wrapper-layout">
+            <div class="logo-box-layout theme-logo-box"><img src="favico.png" alt="Лого" class="logo-img"></div>
+            <span class="brand-text theme-brand-title">Akademia<span class="brand-accent">BG</span></span>
+        </a>
+        <div class="nav-actions-layout">
+            <span id="user-credits-display" style="font-size: 13px; font-weight: 700; color: #10b981;">Баланс: -- кредита</span>
+            <a href="dashboard.html" class="nav-link-secondary theme-text-accent-link">Табло</a>
+        </div>
+    </header>
+
+    <main class="dashboard-layout" style="padding-top: 40px; padding-bottom: 80px;">
+        <div style="text-align: center; margin-bottom: 48px;">
+            <h1 class="hero-title-layout theme-heading-text" style="font-size: 36px; margin-bottom: 12px;">Пакетни планове</h1>
+            <p class="theme-text-muted-paragraph" style="max-width: 540px; margin: 0 auto;">Закупете кредити за индивидуални уроци. Един кредит съответства на един пълен учебен час с избран преподавател.</p>
+        </div>
+
+        <section class="catalog-grid-layout" id="packages-container" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            
+            <div class="card-layout theme-glass-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px; height: 380px; box-sizing: border-box;">
+                <div>
+                    <span class="badge-text theme-brand-title" style="font-size: 11px; text-transform: uppercase; color: #64748b;">Пакет "Старт"</span>
+                    <h2 class="theme-heading-text" style="font-size: 40px; margin: 16px 0 8px 0; font-weight: 800;">3 <span style="font-size: 18px; font-weight: 500; color: #94a3b8;">кредита</span></h2>
+                    <p class="theme-text-muted-paragraph" style="font-size: 13px; line-height: 1.5; margin: 0;">Подходящ за пробно обучение или бърза подготовка преди контролно изпитване.</p>
+                </div>
+                <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 20px;">
+                    <div style="margin-bottom: 16px;"><span style="font-size: 24px; font-weight: 800; color: #fff;">60 €</span> <span style="font-size: 12px; color: #64748b;">(~117 лв.)</span></div>
+                    <button class="btn-secondary-layout purchase-btn" data-pack="pack_3" style="width: 100%; padding: 12px; font-weight: 700;">Избери пакет</button>
+                </div>
+            </div>
+
+            <div class="card-layout theme-glass-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px; height: 380px; box-sizing: border-box; border-color: rgba(255,255,255,0.12);">
+                <div>
+                    <span class="badge-text theme-brand-title" style="font-size: 11px; text-transform: uppercase; color: #64748b;">Пакет "Популярен"</span>
+                    <h2 class="theme-heading-text" style="font-size: 40px; margin: 16px 0 8px 0; font-weight: 800;">6 <span style="font-size: 18px; font-weight: 500; color: #94a3b8;">кредита</span></h2>
+                    <p class="theme-text-muted-paragraph" style="font-size: 13px; line-height: 1.5; margin: 0;">Балансиран избор за системна работа в рамките на един календарен месец.</p>
+                </div>
+                <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 20px;">
+                    <div style="margin-bottom: 16px;"><span style="font-size: 24px; font-weight: 800; color: #fff;">120 €</span> <span style="font-size: 12px; color: #64748b;">(~235 лв.)</span></div>
+                    <button class="btn-secondary-layout purchase-btn" data-pack="pack_6" style="width: 100%; padding: 12px; font-weight: 700;">Избери пакет</button>
+                </div>
+            </div>
+
+            <div class="card-layout theme-glass-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 32px; height: 380px; box-sizing: border-box; border: 2px solid #3b82f6; position: relative;">
+                <div class="badge-layout theme-btn-primary" style="position: absolute; top: -12px; right: 24px; padding: 4px 12px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 20px; width: auto; background: #3b82f6;">Най-добра цена</div>
+                <div>
+                    <span class="badge-text theme-brand-title" style="font-size: 11px; text-transform: uppercase; color: #3b82f6; font-weight: 700;">Пакет "Премиум"</span>
+                    <h2 class="theme-heading-text" style="font-size: 40px; margin: 16px 0 8px 0; font-weight: 800; color: #3b82f6;">12 <span style="font-size: 18px; font-weight: 500; color: #94a3b8;">кредита</span></h2>
+                    <p class="theme-text-muted-paragraph" style="font-size: 13px; line-height: 1.5; margin: 0;">Пълна дългосрочна изпитна подготовка за НВО или матура с максимална икономия.</p>
+                </div>
+                <div style="margin-top: auto; border-top: 1px solid rgba(37,99,235,0.1); padding-top: 20px;">
+                    <div style="margin-bottom: 16px;"><span style="font-size: 24px; font-weight: 800; color: #3b82f6;">228 €</span> <span style="font-size: 11px; color: #64748b; text-decoration: line-through;">240 €</span></div>
+                    <button class="btn-primary-layout theme-btn-primary purchase-btn" data-pack="pack_12" style="width: 100%; padding: 12px; font-weight: 700;">Избери пакет</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="./src/credits-handler.js"></script>
+</body>
+</html>

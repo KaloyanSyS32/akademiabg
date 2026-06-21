@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профил на преподавател | AkademiaBG</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <style>
+        .profile-page-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+            box-sizing: border-box;
+        }
+        
+        @media (min-width: 992px) {
+            .profile-page-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .meta-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--surface-border, rgba(255, 255, 255, 0.08));
+        }
+
+        .bio-text-area {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-muted, #94a3b8);
+            white-space: pre-wrap;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-layout theme-glass-nav">
+        <a href="index.html" class="brand-wrapper-layout">
+            <div class="logo-box-layout theme-logo-box">
+                <img src="favico.png" alt="Лого" class="logo-img">
+            </div>
+            <span class="brand-text theme-brand-title">
+                Akademia<span class="brand-accent">BG</span>
+            </span>
+        </a>
+        <div class="nav-actions-layout">
+            <a href="catalog.html" class="nav-link-secondary theme-text-accent-link">Всички учители</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="profile-loading-state" class="theme-skeleton-loader" style="height: 400px; max-width: 1152px; margin: 40px auto; border-radius: 12px; width: calc(100% - 48px);"></div>
+        
+        <div id="profile-root-wrapper" class="profile-page-grid" style="display: none;">
+            <section class="card-layout theme-glass-card" style="padding: 40px; min-height: auto; display: flex; flex-direction: column; gap: 32px;">
+                <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--surface-border, rgba(255, 255, 255, 0.08));">
+                    <div class="logo-box-layout theme-logo-box" style="width: 88px; height: 88px; border-radius: 50%; overflow: hidden; margin: 0; flex-shrink: 0; border: 2px solid var(--theme-accent, #3b82f6);">
+                        <img id="view-avatar" src="" alt="Преподавател" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <h1 id="view-name" class="hero-title-layout theme-heading-text" style="font-size: 28px; text-align: left; margin: 0 0 6px 0; letter-spacing: -0.02em;">-</h1>
+                        <span id="view-subject" class="badge-text" style="color: #3b82f6; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">-</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="theme-heading-text" style="font-size: 20px; margin: 0 0 16px 0; letter-spacing: -0.01em;">Биография & Педагогически подход</h2>
+                    <p id="view-bio" class="bio-text-area">-</p>
+                </div>
+            </section>
+
+            <aside style="display: flex; flex-direction: column; gap: 24px;">
+                <div class="card-layout theme-glass-card" style="padding: 32px; min-height: auto;">
+                    <h3 class="theme-heading-text" style="font-size: 18px; margin: 0 0 8px 0;">Условия на обучение</h3>
+                    
+                    <div class="meta-list">
+                        <div class="meta-item">
+                            <span class="theme-text-muted-paragraph" style="margin: 0; font-size: 14px;">Ставка за урок:</span>
+                            <span id="view-rate" style="font-weight: 700; color: #3b82f6; font-size: 16px;">-</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="theme-text-muted-paragraph" style="margin: 0; font-size: 14px;">Подходящо за:</span>
+                            <span id="view-grades" style="font-weight: 700; color: #10b981; font-size: 14px;">-</span>
+                        </div>
+                    </div>
+
+                    <button id="booking-trigger-btn" class="btn-primary-layout theme-btn-primary" style="margin-top: 32px; width: 100%; padding: 14px;">Запиши се за час</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script type="module" src="./src/profile-loader.js"></script>
+</body>
+</html>
