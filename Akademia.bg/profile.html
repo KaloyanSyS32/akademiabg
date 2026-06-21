@@ -7,48 +7,6 @@
     <link rel="stylesheet" href="./styles/main.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    <style>
-        .profile-page-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 24px;
-            box-sizing: border-box;
-        }
-        
-        @media (min-width: 992px) {
-            .profile-page-grid {
-                grid-template-columns: 2fr 1fr;
-            }
-        }
-
-        .meta-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .meta-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 14px;
-            border-bottom: 1px solid var(--surface-border, rgba(255, 255, 255, 0.08));
-        }
-
-        .bio-text-area {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-muted, #94a3b8);
-            white-space: pre-wrap;
-            margin: 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -66,43 +24,43 @@
         </div>
     </header>
 
-    <main>
-        <div id="profile-loading-state" class="theme-skeleton-loader" style="height: 400px; max-width: 1152px; margin: 40px auto; border-radius: 12px; width: calc(100% - 48px);"></div>
+    <main class="page-main-layout">
+        <div id="profile-loading-state" class="profile-loader-layout theme-skeleton-loader"></div>
         
-        <div id="profile-root-wrapper" class="profile-page-grid" style="display: none;">
-            <section class="card-layout theme-glass-card" style="padding: 40px; min-height: auto; display: flex; flex-direction: column; gap: 32px;">
-                <div style="display: flex; align-items: center; gap: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--surface-border, rgba(255, 255, 255, 0.08));">
-                    <div class="logo-box-layout theme-logo-box" style="width: 88px; height: 88px; border-radius: 50%; overflow: hidden; margin: 0; flex-shrink: 0; border: 2px solid var(--theme-accent, #3b82f6);">
-                        <img id="view-avatar" src="" alt="Преподавател" style="width: 100%; height: 100%; object-fit: cover;">
+        <div id="profile-root-wrapper" class="profile-page-grid-layout">
+            <section class="card-layout theme-glass-card profile-bio-wrapper-layout">
+                <div class="profile-header-strip-layout theme-border-bottom-divider">
+                    <div class="logo-box-layout theme-logo-box profile-avatar-frame-layout theme-avatar-border">
+                        <img id="view-avatar" src="" alt="Преподавател" class="profile-avatar-img-layout">
                     </div>
-                    <div>
-                        <h1 id="view-name" class="hero-title-layout theme-heading-text" style="font-size: 28px; text-align: left; margin: 0 0 6px 0; letter-spacing: -0.02em;">-</h1>
-                        <span id="view-subject" class="badge-text" style="color: #3b82f6; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">-</span>
+                    <div class="profile-headline-block-layout">
+                        <h1 id="view-name" class="hero-title-layout theme-heading-text profile-header-title-layout">-</h1>
+                        <span id="view-subject" class="badge-text theme-text-accent-link profile-subject-badge-layout">-</span>
                     </div>
                 </div>
 
-                <div>
-                    <h2 class="theme-heading-text" style="font-size: 20px; margin: 0 0 16px 0; letter-spacing: -0.01em;">Биография & Педагогически подход</h2>
-                    <p id="view-bio" class="bio-text-area">-</p>
+                <div class="profile-body-block-layout">
+                    <h2 class="theme-heading-text profile-section-title-layout">Биография & Педагогически подход</h2>
+                    <p id="view-bio" class="bio-text-area-layout theme-text-muted-paragraph">-</p>
                 </div>
             </section>
 
-            <aside style="display: flex; flex-direction: column; gap: 24px;">
-                <div class="card-layout theme-glass-card" style="padding: 32px; min-height: auto;">
-                    <h3 class="theme-heading-text" style="font-size: 18px; margin: 0 0 8px 0;">Условия на обучение</h3>
+            <aside class="profile-sidebar-wrapper-layout">
+                <div class="card-layout theme-glass-card profile-meta-card-layout">
+                    <h3 class="theme-heading-text profile-meta-title-layout">Условия на обучение</h3>
                     
-                    <div class="meta-list">
-                        <div class="meta-item">
-                            <span class="theme-text-muted-paragraph" style="margin: 0; font-size: 14px;">Ставка за урок:</span>
-                            <span id="view-rate" style="font-weight: 700; color: #3b82f6; font-size: 16px;">-</span>
+                    <div class="meta-list-layout">
+                        <div class="meta-item-layout theme-border-bottom-divider">
+                            <span class="theme-text-muted-paragraph profile-meta-label-layout">Ставка за урок:</span>
+                            <span id="view-rate" class="profile-rate-value-layout theme-text-accent-link">-</span>
                         </div>
-                        <div class="meta-item">
-                            <span class="theme-text-muted-paragraph" style="margin: 0; font-size: 14px;">Подходящо за:</span>
-                            <span id="view-grades" style="font-weight: 700; color: #10b981; font-size: 14px;">-</span>
+                        <div class="meta-item-layout theme-border-bottom-divider">
+                            <span class="theme-text-muted-paragraph profile-meta-label-layout">Подходящо за:</span>
+                            <span id="view-grades" class="profile-grades-value-layout theme-indicator-text">-</span>
                         </div>
                     </div>
 
-                    <button id="booking-trigger-btn" class="btn-primary-layout theme-btn-primary" style="margin-top: 32px; width: 100%; padding: 14px;">Запиши се за час</button>
+                    <button id="booking-trigger-btn" class="btn-primary-layout theme-btn-primary profile-booking-btn-layout">Запиши се за час</button>
                 </div>
             </aside>
         </div>
