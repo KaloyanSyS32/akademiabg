@@ -160,3 +160,15 @@
 .card-meta-footer {
     border-top: 1px solid var(--surface-border);
 }
+
+.theme-avatar-border {
+    border: 2px solid var(--theme-accent, #3b82f6);
+}
+
+.theme-indicator-dot {
+    background-color: #10b981;
+}
+
+.theme-border-bottom-divider {
+    border-bottom: 1px solid var(--surface-border);
+}
