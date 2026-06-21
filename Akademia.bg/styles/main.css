@@ -1,5 +1,6 @@
-@import "./base/reset.css";
-@import "./base/variables.css";
-@import "./layouts/navbar.css";
-@import "./layouts/dashboard.css";
-@import "./themes/glass.css";
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./layouts/navbar.css');
+@import url('./layouts/sidebar.css');
+@import url('./layouts/dashboard.css');
+@import url('./themes/glass.css');
