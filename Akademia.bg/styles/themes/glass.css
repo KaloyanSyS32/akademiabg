@@ -1,3 +1,4 @@
+/* Navigation Component Theme Sheet Mapping */
 .theme-glass-nav {
     background: var(--surface-bg);
     border-bottom: 1px solid var(--surface-border);
@@ -7,6 +8,7 @@
     transition: var(--transition-smooth);
 }
 
+/* Card Component Theme Sheet Mapping */
 .theme-glass-card {
     background: var(--surface-bg);
     border: 1px solid var(--surface-border);
@@ -22,16 +24,21 @@
     transform: translateY(-4px);
 }
 
+/* Layout Variations Intersecting Glass Theme Specifications */
 .variant-featured-layout.theme-glass-card {
     box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2), var(--surface-shadow);
 }
 
-.theme-glass-badge {
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    color: #60a5fa;
+.variant-featured-border-layout {
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
+.variant-premium-badge-layout {
+    border: 2px solid #3b82f6;
+    position: relative;
+}
+
+/* Input Fields Utility Theme Styles */
 .theme-input {
     background: var(--surface-bg);
     border: 1px solid var(--surface-border);
@@ -49,6 +56,7 @@
     color: var(--theme-text-main);
 }
 
+/* Buttons Theme Elements Mapping */
 .theme-btn-primary {
     background: #2563eb;
     color: #ffffff;
@@ -61,13 +69,14 @@
     transform: translateY(-1px);
 }
 
+/* Typography, Headings, and Color Tokens Maps */
 .theme-heading-text {
     background: var(--heading-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero-title-layout span {
+.theme-heading-accent {
     color: #3b82f6;
     background: none;
     -webkit-text-fill-color: initial;
@@ -104,6 +113,42 @@
     color: #3b82f6;
 }
 
+.label-muted-tint-layout {
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+.label-accent-tint-layout {
+    text-transform: uppercase;
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+.variant-accent-heading-layout {
+    font-weight: 800;
+    color: #3b82f6;
+}
+
+.package-units-heading-layout {
+    font-weight: 800;
+}
+
+.price-value-layout {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.price-crossed-layout {
+    text-decoration: line-through;
+}
+
+/* Badge and Utility Elements Structural Decoration Mapping */
+.theme-glass-badge {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
 .theme-icon-container {
     background: rgba(59, 130, 246, 0.1);
     border: 1px solid rgba(59, 130, 246, 0.2);
@@ -124,10 +169,61 @@
     transition: var(--transition-smooth);
 }
 
-.brand-wrapper-layout:hover .theme-logo-box {
-    border-color: rgba(59, 130, 246, 0.5);
+.theme-avatar-border {
+    border: 2px solid #3b82f6;
 }
 
+.theme-indicator-dot {
+    background-color: #10b981;
+}
+
+.premium-ribbon-tag-layout {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #3b82f6;
+}
+
+.onboarding-rate-highlight-layout {
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.recovery-link-layout {
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+.theme-indicator-text {
+    font-weight: 700;
+    color: #10b981;
+}
+
+/* Interactive Status Layout Custom Themes Mapping */
+.theme-status-error {
+    font-weight: 700;
+    color: var(--clr-error);
+}
+
+.theme-status-success {
+    font-weight: 700;
+    color: var(--clr-success);
+}
+
+/* Dividers and Line Custom Rules Mapping */
+.theme-border-top-divider {
+    border-top: 1px solid var(--surface-border);
+}
+
+.theme-border-bottom-divider {
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.theme-border-top-divider-accent {
+    border-top: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+/* Shimmer Loading State Visual Animations Engine Mapping */
 .theme-skeleton-loader {
     background: rgba(255, 255, 255, 0.05);
     animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -140,35 +236,35 @@
 
 .pulse-ring {
     background-color: #3b82f6;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     animation: indicator-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .pulse-dot {
     background-color: #3b82f6;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 @keyframes indicator-ping {
     75%, 100% { transform: scale(2.5); opacity: 0; }
 }
 
+/* Footers and Structural Backdrops Layout Custom Themes Mapping */
 .theme-footer {
     background: var(--theme-bg);
     border-top: 1px solid var(--footer-border-tint);
     transition: var(--transition-smooth);
 }
 
-.card-meta-footer {
-    border-top: 1px solid var(--surface-border);
-}
-
-.theme-avatar-border {
-    border: 2px solid var(--theme-accent, #3b82f6);
-}
-
-.theme-indicator-dot {
-    background-color: #10b981;
-}
-
-.theme-border-bottom-divider {
-    border-bottom: 1px solid var(--surface-border);
+.brand-side-layout {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(2, 6, 23, 0.4) 100%);
+    border-left: 1px solid var(--surface-border);
 }
